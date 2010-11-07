@@ -27,11 +27,6 @@ set showmatch "括弧の対応をハイライト
 set showcmd   "入力中のコマンドを表示
 set number    "行番号を表示
 
-nmap <F1> <nop> "F1キーを無効化
-
-
-
-
 
 "ウィンドウ------------------------------
 set cmdheight=1 "コマンドラインの高さ
@@ -45,11 +40,6 @@ set nobackup    "バックアップファイルを作らない
 set visualbell t_vb= 
 
 
-"C-dでDelete--------------------
-imap <C-d> <Del>
-
-
-
 "カーソル行だけハイライト--------------
 set cursorline
 augroup cch
@@ -60,15 +50,6 @@ augroup END
 :hi clear CursorLine
 :hi CursorLine gui=underline
 
-"ESCの2回押しでハイライト消去----------
-nmap <ESC><ESC> :nohlsearch<CR><ESC>
-
-
-"C-hjklでウィンドウ移動----------------
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
 
 " フォールド設定--------------------
 set foldmethod=syntax
@@ -76,40 +57,24 @@ set foldcolumn=1
 set foldlevelstart=99
 
 
-
 set showtabline=2 "タブを常に表示
 set imdisable "IMEをdisableに
 set iminsert=0 imsearch=0
 set lines=40
-set columns=120
+set columns=140
 colorscheme ir_black
-set guifont=Monaco:h12  "フォント
 set antialias
 set transparency=10
 set guioptions-=T  "ツールバー削除
-
-
-"------------------------------------
-" neocomplcache
-"------------------------------------
-imap <expr><Tab> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<Tab>"
 
 
 " vimball install setting
 " ディレクトリ名変更忘れずに
 let g:vimball_home = "/Users/Yuta/.vim/bundle/new_plugin"
 
-
-
 ""------------------------------------
-"" surround.vim
+"" Font
 ""------------------------------------
-" s, ssで選択範囲を指定文字でくくる
-nmap s <Plug>Ysurround
-nmap ss <Plug>Yssurround
+set guifont=Inconsolata:h14
+set guifontwide=Takaoゴシック:h14
 
-
-""------------------------------------
-"" hatena.vim
-""------------------------------------
-:let g:hatena_user='eggxile'
