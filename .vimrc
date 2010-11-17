@@ -21,7 +21,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 set helpfile=$VIMRUNTIME/doc/help.txt
 " ファイルタイプ判定をon
-filetype plugin on
+filetype plugin indent on
 
 
 ""------------------------------------
@@ -36,8 +36,6 @@ augroup cch
   autocmd WinLeave * set nocursorline
   autocmd WinEnter,BufRead * set cursorline
 augroup END
-:hi clear CursorLine
-:hi CursorLine gui=underline
 
 
 
@@ -105,25 +103,37 @@ set guioptions-=T  "ツールバー削除
 "" Mapping
 ""------------------------------------
 " 移動後画面中央に
-nmap n nzz 
-nmap N Nzz
-nmap * *zz 
-nmap # #zz 
-nmap g* g*zz 
-nmap g# g#zz
+nnoremap n nzz 
+nnoremap N Nzz
+nnoremap * *zz 
+nnoremap # #zz 
+nnoremap g* g*zz 
+nnoremap g# g#zz
 " F1キーを無効化
-nmap <F1> <nop>
+nnoremap <F1> <nop>
 " Ctrl-dをDeleteに
-imap <C-d> <Del>
+inoremap <C-d> <Del>
 
 " ESCの2回押しでハイライト消去
-nmap <ESC><ESC> :nohlsearch<CR><ESC>
+nnoremap <ESC><ESC> :nohlsearch<CR><ESC>
 
 " Ctrl-hjklでウィンドウ移動
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+" セミコロンをコロン扱いに
+noremap ; :
+noremap : ;
+" 論理行移動と表示行移動を入れ替え
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+" 最後に変更したテキストを選択
+nnoremap gc `[v`]
+vnoremap gc :<C-u>normal gc<Enter>
+onoremap gc :<C-u>normal gc<Enter>
 
 
 ""------------------------------------
